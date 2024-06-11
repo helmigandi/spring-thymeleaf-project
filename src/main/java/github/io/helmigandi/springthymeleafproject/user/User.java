@@ -1,17 +1,17 @@
 package github.io.helmigandi.springthymeleafproject.user;
 
-import io.github.wimdeblauwe.jpearl.AbstractEntity;
+import io.github.wimdeblauwe.jpearl.AbstractVersionedEntity;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "tt_user")
-public class User extends AbstractEntity<UserId> {
+public class User extends AbstractVersionedEntity<UserId> {
 
     @NotNull
     private UserName userName; //<.>
@@ -60,5 +60,25 @@ public class User extends AbstractEntity<UserId> {
 
     public PhoneNumber getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public void setUserName(UserName userName) {
+        this.userName = userName;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(PhoneNumber phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

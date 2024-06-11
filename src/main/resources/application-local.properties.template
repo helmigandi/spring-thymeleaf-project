@@ -1,10 +1,7 @@
-spring.thymeleaf.cache=false
-spring.web.resources.chain.cache=false
-
 # Database setup
 spring.datasource.url=jdbc:postgresql://localhost/tamingthymeleafdb
 spring.datasource.driver-class-name=org.postgresql.Driver
 spring.datasource.username=postgres
-spring.datasource.password=FILL_IN
+spring.datasource.password=
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.hibernate.ddl-auto=validate

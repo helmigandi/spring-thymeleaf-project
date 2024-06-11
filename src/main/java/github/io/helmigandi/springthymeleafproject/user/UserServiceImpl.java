@@ -26,10 +26,15 @@ public class UserServiceImpl implements UserService {
         return repository.save(user);
     }
 
-    // tag::getUsers[]
     @Override
     public Page<User> getUsers(Pageable pageable) {
         return repository.findAll(pageable);
+    }
+
+    // tag::getUsers[]
+    @Override
+    public boolean userWithEmailExists(Email email) {
+        return repository.existsByEmail(email);
     }
     // end::getUsers[]
 }

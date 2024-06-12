@@ -56,10 +56,15 @@ public class UserServiceImpl implements UserService {
         return repository.existsByEmail(email);
     }
 
-    // tag::getUser[]
     @Override
     public Optional<User> getUser(UserId userId) {
         return repository.findById(userId);
     }
-    // end::getUser[]
+
+    // tag::deleteUser[]
+    @Override
+    public void deleteUser(UserId userId) {
+        repository.deleteById(userId); //<.>
+    }
+    // end::deleteUser[]
 }

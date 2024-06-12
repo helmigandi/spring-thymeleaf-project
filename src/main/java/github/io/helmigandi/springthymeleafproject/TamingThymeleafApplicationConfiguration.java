@@ -5,6 +5,8 @@ import io.github.wimdeblauwe.jpearl.UniqueIdGenerator;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
@@ -35,4 +37,11 @@ public class TamingThymeleafApplicationConfiguration {
         bean.setValidationMessageSource(messageSource); //<.>
         return bean;
     }
+
+    // tag::passwordEncoder[]
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+    // end::passwordEncoder[]
 }
